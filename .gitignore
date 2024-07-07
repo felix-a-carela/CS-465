@@ -67,3 +67,5 @@ typings/
 !.vscode/launch.json
 !.vscode/extensions.json
 *.code-workspace
+
+# git remote get-url origin
