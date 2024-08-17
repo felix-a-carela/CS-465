@@ -1,3 +1,5 @@
+// app_admin/src/app/models/trip.ts
+
 export interface Trip {
     _id: string;  // Internal primary key in MongoDB
     code: string;
