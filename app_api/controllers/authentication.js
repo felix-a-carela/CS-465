@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const User = mongoose.model('users');
 const passport = require('passport');
 
-
+// Handle user registration
 const register = async (req, res) => {
   // Validate message to ensure that all parameters are present
   if (!req.body.name || !req.body.email || !req.body.password) {
@@ -26,16 +26,17 @@ const register = async (req, res) => {
     // Database returned no data
     return res
       .status(400)
-      .json(err);
+      .json({ "message": "Error saving user to database" });
   } else {
     // Return new user token
     const token = user.generateJWT();
     return res
       .status(200)
-      .json(token);
+      .json({ token });
   }
 };
 
+// Handle user login
 const login = (req, res) => {
   // Validate message to ensure that email and password are present.
   if (!req.body.email || !req.body.password) {
@@ -45,22 +46,22 @@ const login = (req, res) => {
   }
 
   // Delegate authentication to passport module
-  passport.authenticate('local', (err, user, info) => {
+  passport.authenticate('local', { session: false }, (err, user, info) => {
     if (err) {
       // Error in Authentication Process
       return res
         .status(404)
-        .json(err);
+        .json({ "message": "Error in authentication process", err });
     }
     if (user) { // Auth succeeded - generate JWT and return to caller
       const token = user.generateJWT();
-      res
+      return res
         .status(200)
         .json({ token });
     } else { // Auth failed, return error
-      res
+      return res
         .status(401)
-        .json(info);
+        .json({ "message": "Authentication failed", info });
     }
   })(req, res);
 };

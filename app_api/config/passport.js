@@ -29,3 +29,18 @@ passport.use(new LocalStrategy(
     return done(null, q); // Everything is OK, return user object
   }
 ));
+
+// Serialize the user into the session
+passport.serializeUser((user, done) => {
+  done(null, user.id); // Save the user ID to the session
+});
+
+// Deserialize the user from the session
+passport.deserializeUser(async (id, done) => {
+  try {
+    const user = await User.findById(id).exec();
+    done(null, user); // Retrieve the full user object from the database
+  } catch (err) {
+    done(err, null);
+  }
+});

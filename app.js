@@ -6,6 +6,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var hbs = require('hbs');
+var session = require('express-session');
 
 // Load environment variables from .env file
 require('dotenv').config();
@@ -25,6 +26,8 @@ var mealsRouter = require('./app_server/routes/meals');
 var newsRouter = require('./app_server/routes/news');
 var aboutRouter = require('./app_server/routes/about');
 var contactRouter = require('./app_server/routes/contact');
+var loginRouter = require('./app_server/routes/login');
+var signupRouter = require('./app_server/routes/signup');
 
 // Bring in the database
 require('./app_api/models/db');
@@ -54,6 +57,18 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(passport.initialize());
 
+// Session middleware
+app.use(session({
+  secret: process.env.SESSION_SECRET,
+  resave: false,
+  saveUninitialized: false,
+  cookie: { secure: false }
+}));
+
+// Initialize Passport and session handling
+app.use(passport.initialize());
+app.use(passport.session());
+
 // Enable CORS
 app.use('/api', (req, res, next) => {
   res.header('Access-Control-Allow-Origin', 'http://localhost:4200');
@@ -72,6 +87,8 @@ app.use('/meals', mealsRouter);
 app.use('/news', newsRouter);
 app.use('/about', aboutRouter);
 app.use('/contact', contactRouter);
+app.use('/login', loginRouter);
+app.use('/signup', signupRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -87,6 +104,12 @@ app.use((err, req, res, next) => {
   } else {
     next(err);
   }
+});
+
+// Middleware to set `isAuthenticated` in every response
+app.use((req, res, next) => {
+  res.locals.isAuthenticated = req.isAuthenticated();
+  next();
 });
 
 // error handler

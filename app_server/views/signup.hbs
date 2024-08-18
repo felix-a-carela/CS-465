@@ -1,0 +1,36 @@
+<!-- app_server/views/signup.hbs -->
+
+{{> header }}
+
+<div id="background">
+    <div id="page">
+        <div id="contents">
+            <div id="signup-box">
+                <h1>Sign Up</h1>
+                <form id="signupForm" action="/signup" method="POST">
+                    <div class="field">
+                        <label for="name">Name:</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="field">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="field">
+                        <label for="password">Password:</label>
+                        <input type="password" id="password" name="password" required>
+                    </div>
+                    <div class="field">
+                        <label for="passwordConfirm">Retype Password:</label>
+                        <input type="password" id="passwordConfirm" name="passwordConfirm" required>
+                    </div>
+                    <div class="field">
+                        <button type="submit" id="signupButton">Sign Up</button> <!-- Button is now always enabled -->
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{{> footer }}

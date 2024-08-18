@@ -1,0 +1,35 @@
+<!-- app_server/views/login.hbs -->
+
+{{> header }}
+
+<div id="background">
+    <div id="page">
+        <div id="contents">
+            <div id="login-box">
+                <h1>Login</h1>
+                <form action="/login" method="POST">
+                    <div class="field">
+                        <label for="name">Name:</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="field">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="field">
+                        <label for="password">Password:</label>
+                        <input type="password" id="password" name="password" required>
+                    </div>
+                    <div class="field">
+                        <button type="submit">Login</button>
+                    </div>
+                    <div class="field">
+                        <p>Don't have an account? <a href="/signup">Sign up here</a></p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{{> footer }}
