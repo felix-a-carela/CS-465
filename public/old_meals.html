@@ -1,9 +1,11 @@
+<!-- public/meals.html-->
+
 <!DOCTYPE html>
 <!-- Website template by freewebsitetemplates.com -->
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>Contact - Travlr Getaways Website Template</title>
+	<title>Foods - Travlr Getaways Website Template</title>
 	<link rel="stylesheet" href="css/style.css" type="text/css">
 </head>
 <body>
@@ -24,7 +26,7 @@
 						<li>
 							<a href="rooms.html">Rooms</a>
 						</li>
-						<li>
+						<li class="selected">
 							<a href="meals.html">Meals</a>
 						</li>
 						<li>
@@ -33,7 +35,7 @@
 						<li>
 							<a href="about.html">About</a>
 						</li>
-						<li class="selected">
+						<li>
 							<a href="contact.html">Contact</a>
 						</li>
 					</ul>
@@ -42,40 +44,37 @@
 			<div id="contents">
 				<div class="box">
 					<div>
-						<div id="contact" class="body">
-							<h1>Contact</h1>
-							<form action="index.html" method="post">
-								<table>
-									<tbody>
-										<tr>
-											<td>Name:</td>
-											<td><input type="text" value="" class="txtfield"></td>
-										</tr> <tr>
-											<td>Email:</td>
-											<td><input type="text" value="" class="txtfield"></td>
-										</tr> <tr>
-											<td>Subject:</td>
-											<td><input type="text" value="" class="txtfield"></td>
-										</tr> <tr>
-											<td class="txtarea">Message:</td>
-											<td><textarea></textarea></td>
-										</tr> <tr>
-											<td></td>
-											<td><input type="submit" value="" class="btn"></td>
-										</tr>
-									</tbody>
-								</table>
-							</form>
-							<h2>Travlr Getaways</h2>
-							<p>
-								<span>Address:</span> 123 Lorem Ipsum Cove, Sed Ut City, LI 12345
-							</p>
-							<p>
-								<span>Telephone Number:</span> 1-800-999-9999
-							</p>
-							<p>
-								<span>Fax Number:</span> 1-800-111-1111
-							</p>
+						<div class="body">
+							<h1>Meals</h1>
+							<ul id="foods">
+								<li>
+									<h2><a href="meals.html">SeaFood Special</a></h2>
+									<div class="infos">
+										<a href="meals.html"><img src="images/seafoods.jpg" alt="Img" height="169" width="780"><span class="cover"></span></a>
+										<p>
+											<span>Fried Salmon Special</span> I'm a product overview. Here you can write more information about your product. Buyers like to know ...
+										</p>
+									</div>
+								</li>
+								<li>
+									<h2><a href="meals.html">Sumptuous Desserts</a></h2>
+									<div class="infos">
+										<a href="meals.html"><img src="images/desserts.jpg" alt="Img" height="169" width="780"><span class="cover"></span></a>
+										<p>
+											<span>Choco Ice Cream Sandwich</span> I'm a product overview. Here you can write more information about your product. Buyers like to know ...
+										</p>
+									</div>
+								</li>
+								<li>
+									<h2><a href="meals.html">Buffet</a></h2>
+									<div class="infos">
+										<a href="meals.html"><img src="images/buffet.jpg" alt="Img" height="169" width="780"><span class="cover"></span></a>
+										<p>
+											<span>Mixed Buffet</span> I'm a product overview. Here you can write more information about your product. Buyers like to know ...
+										</p>
+									</div>
+								</li>
+							</ul>
 						</div>
 					</div>
 				</div>
@@ -93,7 +92,7 @@
 					<li>
 						<a href="rooms.html">Rooms</a>
 					</li>
-					<li>
+					<li class="active">
 						<a href="meals.html">Meals</a>
 					</li>
 					<li>
@@ -102,7 +101,7 @@
 					<li>
 						<a href="about.html">About</a>
 					</li>
-					<li class="active">
+					<li>
 						<a href="contact.html">Contact</a>
 					</li>
 				</ul>

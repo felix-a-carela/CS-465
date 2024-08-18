@@ -1,0 +1,31 @@
+<!-- app_server/views/rooms.hbs -->
+
+{{> header }}
+
+<div id="background">
+    <div id="page">
+        <div id="contents">
+            <div class="box">
+                <div>
+                    <div class="body">
+                        <h1>Rooms</h1>
+                        <ul id="rooms">
+                            {{#each rooms}}
+                            <li>
+                                <a href="/rooms"><img src="/images/{{this.image}}" alt="{{this.name}}"></a>
+                                <h2><a href="/rooms">{{this.name}}</a></h2>
+                                <p>
+                                    {{this.description}}
+                                </p>
+                                <span class="rate">Rate: {{this.rate}} / Day</span>
+                            </li>
+                            {{/each}}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{{> footer }}

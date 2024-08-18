@@ -1,0 +1,51 @@
+<!-- app_server/views/news.hbs -->
+
+{{> header }}
+
+<div id="background">
+    <div id="page">
+        <div id="contents">
+            <div class="box">
+                <div>
+                    <div id="news" class="body">
+                        <div class="sidebar">
+                            <h3>Latest News</h3>
+                            <ul>
+                                {{#each latestNews}}
+                                <li>
+                                    <a href="/news">{{this.title}}</a>
+                                </li>
+                                {{/each}}
+                            </ul>
+                            <h3>Vacation Tips</h3>
+                            <ul>
+                                {{#each vacationTips}}
+                                <li>
+                                    <a href="/news">{{this.title}}</a>
+                                </li>
+                                {{/each}}
+                            </ul>
+                        </div>
+                        <div>
+                            <h1>{{mainArticle.title}}</h1>
+                            <img src="/images/{{mainArticle.image}}" alt="Img">
+                            <h2>{{mainArticle.subtitle}}</h2>
+                            <span class="time">{{mainArticle.date}}<br> by: {{mainArticle.author}}</span>
+                            <p>
+                                {{mainArticle.content1}}
+                            </p>
+                            <p>
+                                {{mainArticle.content2}}
+                            </p>
+                            <p>
+                                {{mainArticle.content3}}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{{> footer }}
