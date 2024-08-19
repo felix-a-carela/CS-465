@@ -1,3 +1,5 @@
+<!-- app_server/views/partials/header.hbs -->
+
 <div id="header">
     <div id="logo">
         <a href="/"><img src="/images/logo.png" alt="LOGO" height="100" width="200"></a>
@@ -25,22 +27,13 @@
             <li class="{{#if (eq current 'contact')}}selected{{/if}}">
                 <a href="/contact">Contact</a>
             </li>
+            
             <li style="margin-left: auto;" class="{{#if (eq current 'login')}}selected{{/if}}">
-                {{#if isAuthenticated}}
-                    <a href="/logout">Logout</a>
-                {{else}}
-                    <a href="/login">Login</a>
-                {{/if}}
+                <a href="/login">Login</a>
+            </li>
+            <li class="{{#if (eq current 'logout')}}selected{{/if}}">
+                <a href="/logout">Logout</a>
             </li>
         </ul>
     </div>
-    <!-- Logout button -->
-    <div id="footer">
-        <button onclick="window.location.href='/logout'">Logout</button>
-    </div>
-
 </div>
-
-<p>isAuthenticated: {{isAuthenticated}}</p> <!-- Line for for debugging -->
-
-<!-- Logout button at the bottom -->
