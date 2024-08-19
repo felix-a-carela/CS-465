@@ -28,6 +28,7 @@ var aboutRouter = require('./app_server/routes/about');
 var contactRouter = require('./app_server/routes/contact');
 var loginRouter = require('./app_server/routes/login');
 var signupRouter = require('./app_server/routes/signup');
+var logoutRouter = require('./app_server/routes/logout');
 
 // Bring in the database
 require('./app_api/models/db');
@@ -89,6 +90,7 @@ app.use('/about', aboutRouter);
 app.use('/contact', contactRouter);
 app.use('/login', loginRouter);
 app.use('/signup', signupRouter);
+app.use('/logout', logoutRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
